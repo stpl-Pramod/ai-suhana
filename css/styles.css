@@ -483,3 +483,26 @@ body {
     font-size: 1em;
     color: #555;
 }
+
+.cart-items {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.cart-item {
+    padding: 10px 0;
+}
+
+.cart-summary {
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+}
+
+.cart-summary h3, .cart-summary h4 {
+    margin-top: 0;
+}
+
+.cart-summary p {
+    margin: 5px 0;
+}

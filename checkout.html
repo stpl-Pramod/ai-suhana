@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+</head>
+<body>
+    <header class="sticky-header">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo">
+                <img src="images/home/logo.JFIF" alt="Snack Store Logo">
+            </div>
+            <div class="header-icons">
+                <a href="#" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">3</span>
+                </a>
+                <a href="#" class="login-link">Login</a>
+                <a href="#" class="signup-link">Signup</a>
+            </div>
+        </div>
+    </header>
+    <div class="container mt-4">
+        <h2>Checkout</h2>
+        <form>
+            <div class="shipping-address mb-4">
+                <h3>Shipping Address</h3>
+                <div class="form-group">
+                    <label for="shippingName">Name</label>
+                    <input type="text" class="form-control" id="shippingName" required>
+                </div>
+                <div class="form-group">
+                    <label for="shippingAddress">Address</label>
+                    <input type="text" class="form-control" id="shippingAddress" required>
+                </div>
+                <div class="form-group">
+                    <label for="shippingCity">City</label>
+                    <input type="text" class="form-control" id="shippingCity" required>
+                </div>
+                <div class="form-group">
+                    <label for="shippingState">State</label>
+                    <input type="text" class="form-control" id="shippingState" required>
+                </div>
+                <div class="form-group">
+                    <label for="shippingZip">Zip Code</label>
+                    <input type="text" class="form-control" id="shippingZip" required>
+                </div>
+            </div>
+            <div class="billing-address mb-4">
+                <h3>Billing Address</h3>
+                <div class="form-check mb-2">
+                    <input type="checkbox" class="form-check-input" id="sameAsShipping">
+                    <label class="form-check-label" for="sameAsShipping">Same as shipping address</label>
+                </div>
+                <div id="billingAddressFields">
+                    <div class="form-group">
+                        <label for="billingName">Name</label>
+                        <input type="text" class="form-control" id="billingName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="billingAddress">Address</label>
+                        <input type="text" class="form-control" id="billingAddress" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="billingCity">City</label>
+                        <input type="text" class="form-control" id="billingCity" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="billingState">State</label>
+                        <input type="text" class="form-control" id="billingState" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="billingZip">Zip Code</label>
+                        <input type="text" class="form-control" id="billingZip" required>
+                    </div>
+                </div>
+            </div>
+            <div class="payment-options mb-4">
+                <h3>Payment Options</h3>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="paymentMethod" id="creditCard" required>
+                    <label class="form-check-label" for="creditCard">Credit Card</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="paymentMethod" id="paypal" required>
+                    <label class="form-check-label" for="paypal">PayPal</label>
+                </div>
+            </div>
+            <div class="order-summary mb-4">
+                <h3>Order Summary</h3>
+                <p>Subtotal: $19.99</p>
+                <p>Shipping: $5.00</p>
+                <p>Taxes: $2.00</p>
+                <h4>Total: $26.99</h4>
+            </div>
+            <button type="submit" class="btn btn-primary">Place Order</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
