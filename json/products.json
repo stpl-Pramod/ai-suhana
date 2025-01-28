@@ -1,0 +1,49 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Spicy Mango Chips",
+        "description": "Crispy mango slices with a spicy chili flavor.",
+        "price": 7.99,
+        "image": "../images/home/chips1.JFIF",
+        "category": "Fruit Chips",
+        "availability": true
+      },
+      {
+        "id": 2,
+        "name": "Salted Caramel Cashews",
+        "description": "Roasted cashews coated in a sweet and salty caramel glaze.",
+        "price": 12.99,
+        "image": "../images/home/chips1.JFIF",
+        "category": "Nuts",
+        "availability": true
+      },
+      {
+        "id": 3,
+        "name": "Chocolate Covered Almonds",
+        "description": "Almonds covered in rich dark chocolate.",
+        "price": 9.99,
+        "image": "../images/home/chips1.JFIF",
+        "category": "Nuts",
+        "availability": true
+      },
+      {
+        "id": 4,
+        "name": "Sea Salt & Vinegar Potato Chips",
+        "description": "Crispy potato chips with a tangy vinegar flavor.",
+        "price": 3.99,
+        "image": "../images/home/chips1.JFIF",
+        "category": "Chips",
+        "availability": true
+      },
+      {
+        "id": 5,
+        "name": "Organic Fruit Gummies",
+        "description": "Naturally flavored gummies made with real fruit juice.",
+        "price": 5.99,
+        "image": "../images/home/chips1.JFIF",
+        "category": "Candy",
+        "availability": true
+      }
+    ]
+  }

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My HTML Project</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
 </head>
@@ -62,72 +62,9 @@
     <section class="featured-products-section">
         <div class="container">
             <h2>Featured Products</h2>
-            <div id="featuredProductsCarousel" class="carousel slide" data-ride="carousel">
+            <div id="featuredProductsCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="product-item">
-                                    <img src="images/home/chips1.JFIF" alt="Product 1">
-                                    <h3>Product 1</h3>
-                                    <p>$10.00</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="product-item">
-                                    <img src="images/home/chips1.JFIF" alt="Product 2">
-                                    <h3>Product 2</h3>
-                                    <p>$12.00</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="product-item">
-                                    <img src="images/home/chips1.JFIF" alt="Product 3">
-                                    <h3>Product 3</h3>
-                                    <p>$8.00</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="product-item">
-                                    <img src="images/home/chips1.JFIF" alt="Product 4">
-                                    <h3>Product 4</h3>
-                                    <p>$15.00</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="product-item">
-                                    <img src="images/home/chips1.JFIF" alt="Product 5">
-                                    <h3>Product 5</h3>
-                                    <p>$9.00</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="product-item">
-                                    <img src="images/home/chips1.JFIF" alt="Product 6">
-                                    <h3>Product 6</h3>
-                                    <p>$11.00</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="product-item">
-                                    <img src="images/home/chips1.JFIF" alt="Product 7">
-                                    <h3>Product 7</h3>
-                                    <p>$13.00</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="product-item">
-                                    <img src="images/home/chips1.JFIF" alt="Product 8">
-                                    <h3>Product 8</h3>
-                                    <p>$14.00</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Dynamic content will be loaded here -->
                 </div>
                 <a class="carousel-control-prev" href="#featuredProductsCarousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -141,6 +78,8 @@
             <a href="#" class="view-all-button text-white text-decoration-none">View All Products</a>
         </div>
     </section>
+
+    
     <footer class="footer-section" style="background-image: url('images/home/banner-bg.JFIF'); background-size: cover; background-repeat: no-repeat;">
         <div class="container">
             <div class="row">
@@ -186,9 +125,48 @@
             </div>
         </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/scripts.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('http://127.0.0.1:8080/json/products.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (!data.products || !Array.isArray(data.products)) {
+                    throw new Error('Invalid JSON structure');
+                }
+                const container = document.querySelector('#featuredProductsCarousel .carousel-inner');
+                let carouselItems = '';
+                data.products.forEach((product, index) => {
+                    if (index % 4 === 0) {
+                        if (index !== 0) {
+                            carouselItems += '</div></div>';
+                        }
+                        carouselItems += `<div class="carousel-item ${index === 0 ? 'active' : ''}"><div class="row">`;
+                    }
+                    carouselItems += `
+                        <div class="col-md-3">
+                            <div class="product-item">
+                                <img src="${product.image}" alt="${product.name}">
+                                <h3>${product.name}</h3>
+                                <p>${product.description}</p>
+                                <p>$${product.price}</p>
+                                <p>Category: ${product.category}</p>
+                                <p>${product.availability ? '<span class="badge text-bg-primary">In Stock</span>' : '<span class="badge text-bg-primary">Out of Stock</span>'}</p>
+                            </div>
+                        </div>`;
+                });
+                carouselItems += '</div></div>';
+                container.innerHTML = carouselItems;
+            })
+            .catch(error => console.error('Error fetching products:', error));
+    });
+    </script>
 </body>
 </html>
