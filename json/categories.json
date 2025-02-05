@@ -1,0 +1,29 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "name": "Chips",
+            "image": "../images/categories/chips.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Namkeen",
+            "image": "../images/categories/namkeen.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Chatpata",
+            "image": "../images/categories/chatpata.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Sweets",
+            "image": "../images/categories/sweets.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Fryums",
+            "image": "../images/categories/fryums.jpg"
+        }
+    ]
+}
